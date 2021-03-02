@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="box404">
+      <br>
       <p style="color: white;text-align: center;font-size: 20px;">
         您所寻找的页面不存在，<span style="color: red">{{ times }}</span>  秒后，将返回首页!
       </p>
@@ -17,20 +18,20 @@ export default {
       times: 10
     }
   },
-  created() {
-    this.goHome();
-  },
-  methods: {
-    goHome: function () {
-      this.timer = setInterval(() => {
-        this.times--
-        if (this.times === 0) {
-          clearInterval(this.timer)
-          this.$router.push({path: '/'});
-        }
-      }, 1000)
-    }
-  }
+  // created() {
+  //   this.goHome();
+  // },
+  // methods: {
+  //   goHome: function () {
+  //     this.timer = setInterval(() => {
+  //       this.times--
+  //       if (this.times === 0) {
+  //         clearInterval(this.timer)
+  //         this.$router.push({path: '/'});
+  //       }
+  //     }, 1000)
+  //   }
+  // }
 }
 </script>
 

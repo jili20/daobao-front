@@ -1,7 +1,7 @@
 <template>
   <div class="columns py-6">
     <div class="column is-half is-offset-one-quarter">
-      <el-card shadow="never">
+      <el-card >
         <div slot="header" class="has-text-centered has-text-weight-bold">
           新用户入驻
         </div>
@@ -114,7 +114,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.loading = true
+          this.loading = true // 注册按钮不能再点击了
           userRegister(this.ruleForm)
               .then((value) => {
                 const { code, message } = value
