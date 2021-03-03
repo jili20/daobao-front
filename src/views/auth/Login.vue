@@ -33,7 +33,8 @@
 
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')"
-              >提交</el-button
+              >提交
+              </el-button
               >
               <el-button @click="resetForm('ruleForm')">重置</el-button>
             </el-form-item>
@@ -58,7 +59,7 @@ export default {
       },
       rules: {
         name: [
-          { required: true, message: "请输入账号", trigger: "blur" },
+          {required: true, message: "请输入账号", trigger: "blur"},
           {
             min: 2,
             max: 15,
@@ -67,7 +68,7 @@ export default {
           },
         ],
         pass: [
-          { required: true, message: "请输入密码", trigger: "blur" },
+          {required: true, message: "请输入密码", trigger: "blur"},
           {
             min: 6,
             max: 20,
@@ -94,9 +95,11 @@ export default {
                   duration: 2000,
                 });
 
+                // this.$store.dispatch("user/getInfo")
+
                 setTimeout(() => {
                   this.loading = false;
-                  this.$router.push({ path: this.redirect || "/" });
+                  this.$router.push({path: this.redirect || "/"});
                 }, 0.1 * 1000);
               })
               .catch(() => {
