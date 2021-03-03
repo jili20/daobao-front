@@ -18,20 +18,20 @@ export default {
       times: 10
     }
   },
-  // created() {
-  //   this.goHome();
-  // },
-  // methods: {
-  //   goHome: function () {
-  //     this.timer = setInterval(() => {
-  //       this.times--
-  //       if (this.times === 0) {
-  //         clearInterval(this.timer)
-  //         this.$router.push({path: '/'});
-  //       }
-  //     }, 1000)
-  //   }
-  // }
+  created() {
+    this.goHome();
+  },
+  methods: {
+    goHome: function () {
+      this.timer = setInterval(() => {
+        this.times--
+        if (this.times === 0) {
+          clearInterval(this.timer)
+          this.$router.push({path: '/'});
+        }
+      }, 1000)
+    }
+  }
 }
 </script>
 
