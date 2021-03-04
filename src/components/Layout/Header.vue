@@ -150,13 +150,14 @@ export default {
     }
   },
   methods: {
+    // 退出登录
     async logout() {
-      // this.$store.dispatch('user/logout').then(() => {
-      //   this.$message.info('退出登录成功')
-      //   setTimeout(() => {
-      //     this.$router.push({ path: this.redirect || '/' })
-      //   }, 500)
-      // })
+      this.$store.dispatch('user/logout').then(() => {
+        this.$message.info('退出登录成功')
+        setTimeout(() => {
+          this.$router.push({ path: this.redirect || '/' })
+        }, 500)
+      })
     },
     search() {
       // console.log(this.token)
