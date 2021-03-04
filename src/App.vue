@@ -1,9 +1,31 @@
 <template>
-  <!--  <div class="container">-->
-  <div class="">
-    <router-view/>
+  <div>
+    <div class="mb-5">
+      <Header></Header>
+    </div>
+
+    <div class="index">
+      <router-view :key="this.$route.fullPath"></router-view>
+    </div>
+
+    <div>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import Header from "@/components/Layout/Header";
+// import Footer from "@/components/Layout/Footer";
+
+export default {
+  name: "App",
+  components: { Header },
+};
+</script>
+
+<style scoped>
+.index {
+  min-height: 500px;
+}
 </style>
