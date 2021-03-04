@@ -116,16 +116,16 @@
 
 <script>
 import {getList} from '@/api/post'
-// import Pagination from '@/components/Pagination'
+import Pagination from '@/components/Pagination'
 
 export default {
   name: 'TopicList',
-  // components: {Pagination},
+  components: {Pagination},
   data() {
     return {
       activeName: 'latest', // 切换 最新 或 最热 帖子
       articleList: [],
-      page: {
+      page: { // 分页对象
         current: 1,
         size: 10,
         total: 0,
