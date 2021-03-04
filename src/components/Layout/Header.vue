@@ -9,7 +9,6 @@
           <img :src="doubaoImg" alt="logo">
         </b-navbar-item>
 
-        <!-- PC 端隐藏-->
         <b-navbar-item
             class="is-hidden-desktop"
             tag="router-link"
@@ -50,14 +49,13 @@
           </b-field>
         </b-navbar-item>
 
-        <!-- 白天与黑夜切换按钮 -->
         <b-navbar-item tag="div">
           <b-switch
               v-model="darkMode"
-              passive-type="is-primary is-light"
-              type="is-dark"
+              passive-type="is-info"
+              type="is-info"
           >
-            {{ darkMode ? "🌙" : "☀️" }}
+            <!-- {{ darkMode ? "夜" : "日" }}-->
           </b-switch>
         </b-navbar-item>
 
@@ -83,6 +81,7 @@
           </div>
         </b-navbar-item>
 
+        <!-- token 不为空显示 -->
         <b-navbar-dropdown
             v-else
             :label="user.alias"
@@ -122,7 +121,7 @@ export default {
   data() {
     return {
       logoUrl: require('@/assets/logo.png'),
-      doubaoImg: require('@/assets/images/doubao.png'),
+      doubaoImg: require('@/assets/images/logo.png'),
       searchKey: '',
       darkMode: false
     }
@@ -152,24 +151,24 @@ export default {
   },
   methods: {
     async logout() {
-      //   this.$store.dispatch('user/logout').then(() => {
-      //     this.$message.info('退出登录成功')
-      //     setTimeout(() => {
-      //       this.$router.push({path: this.redirect || '/'})
-      //     }, 500)
-      //   })
+      // this.$store.dispatch('user/logout').then(() => {
+      //   this.$message.info('退出登录成功')
+      //   setTimeout(() => {
+      //     this.$router.push({ path: this.redirect || '/' })
+      //   }, 500)
+      // })
     },
     search() {
-      //   console.log(this.token)
-      //   if (this.searchKey.trim() === null || this.searchKey.trim() === '') {
-      //     this.$message.info({
-      //       showClose: true,
-      //       message: '请输入关键字搜索！',
-      //       type: 'warning'
-      //     })
-      //     return false
-      //   }
-      //   this.$router.push({path: '/search?key=' + this.searchKey})
+      // console.log(this.token)
+      // if (this.searchKey.trim() === null || this.searchKey.trim() === '') {
+      //   this.$message.info({
+      //     showClose: true,
+      //     message: '请输入关键字搜索！',
+      //     type: 'warning'
+      //   })
+      //   return false
+      // }
+      // this.$router.push({ path: '/search?key=' + this.searchKey })
     }
   }
 }

@@ -25,8 +25,8 @@ const routes = [
     {
         path: "/404",
         name: "404",
-        component: () => import("@/views/error/FourOFour"),
-        meta: {title: "404-NotFound"},
+        component: () => import("@/views/error/404"),
+        meta: {title: "404"},
     },
     {  // 主要输入的是无效的地址，重室向到 404 页面
         path: "*",
