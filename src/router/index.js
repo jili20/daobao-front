@@ -32,6 +32,13 @@ const routes = [
         path: "*",
         redirect: "/404",
         hidden: true,
+    },
+    // 发布
+    {
+        name: "post-create",
+        path: "/post/create",
+        component: () => import("@/views/post/Create"),
+        meta: { title: "信息发布", requireAuth: true },
     }
 ]
 

@@ -31,7 +31,7 @@
                       </router-link>
 
                       <span class="mr-1">
-                        发布于:{{ dayjs(item.createTime).format("YYYY/MM/DD") }}
+                        发布于:{{ dayjs(item.createTime).format("YYYY-MM-DD") }}
                       </span>
 
                       <span
