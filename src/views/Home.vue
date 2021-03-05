@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div class="box">🔔{{ billboard.content }}</div>
     <div class="columns">
       <!--  https://bulma.io/documentation/columns/basics/ -->

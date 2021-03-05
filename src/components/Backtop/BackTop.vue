@@ -6,13 +6,13 @@
         width: 100%;
         background-color: #f2f5f6;
         box-shadow: 0 1px 0 0;
-        border-radius: 12px;
+        border-radius: 50%;
         text-align: center;
         line-height: 40px;
         color: #167df0;
       }"
     >
-      <i class="fa fa-arrow-up"></i>
+      <i class="el-icon-caret-top"></i>
     </div>
   </el-backtop>
 </template>

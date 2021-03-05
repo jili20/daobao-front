@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="mb-5">
+  <div class="container">
+    <div class="mb-5 ">
       <Header></Header>
     </div>
 

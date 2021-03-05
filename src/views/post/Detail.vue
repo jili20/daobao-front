@@ -1,5 +1,5 @@
 <template>
-  <div class="columns">
+  <div class="columns container">
     <!--文章详情-->
     <div class="column is-three-quarters">
       <!--主题-->
@@ -13,16 +13,16 @@
         >
           <p class="is-size-5 has-text-weight-bold">{{ topic.title }}</p>
           <div class="has-text-grey is-size-7 mt-3">
-            <span>{{ dayjs(topic.createTime).format('yyyy-MM-dd HH:mm:ss') }}</span>
-            <el-divider direction="vertical" />
+            <span>{{ dayjs(topic.createTime).format('YYYY-MM-DD HH:mm:ss') }}</span>
+            <el-divider direction="vertical"/>
             <span>发布者：{{ topicUser.alias }}</span>
-            <el-divider direction="vertical" />
+            <el-divider direction="vertical"/>
             <span>查看：{{ topic.view }}</span>
           </div>
         </div>
 
         <!--Markdown-->
-        <div id="preview" />
+        <div id="preview"/>
 
         <!--标签-->
         <nav class="level has-text-grey is-size-7 mt-6">
@@ -61,11 +61,11 @@
         </nav>
       </el-card>
 
-      <lv-comments :slug="topic.id" />
+      <lv-comments :slug="topic.id"/>
     </div>
 
     <div class="column">
-      <!--作者-->
+      <!--作者 把自定义的用户信息 :user 传给子组件-->
       <Author
           v-if="flag"
           :user="topicUser"
@@ -80,9 +80,9 @@
 </template>
 
 <script>
-import { deleteTopic, getTopic } from '@/api/post'
-import { mapGetters } from 'vuex'
-// import Author from '@/views/post/Author'
+import {deleteTopic, getTopic} from '@/api/post'
+import {mapGetters} from 'vuex'
+import Author from '@/views/post/Author'
 // import Recommend from '@/views/post/Recommend'
 // import LvComments from '@/components/Comment/Comments'
 import Vditor from 'vditor'
@@ -90,10 +90,11 @@ import 'vditor/dist/index.css'
 
 export default {
   name: 'TopicDetail',
+  components: {Author},
   // components: { Author, Recommend, LvComments },
   computed: {
     ...mapGetters([
-      'token','user'
+      'token', 'user'
     ])
   },
   data() {
@@ -114,13 +115,13 @@ export default {
     renderMarkdown(md) {
       // 解析 预览，转 html 内容显示出来
       Vditor.preview(document.getElementById('preview'), md, {
-        hljs: { style: 'github' }
+        hljs: {style: 'github'}
       })
     },
     // 初始化
     async fetchTopic() {
       getTopic(this.$route.params.id).then(response => {
-        const { data } = response
+        const {data} = response
         document.title = data.topic.title
 
         this.topic = data.topic
@@ -133,12 +134,12 @@ export default {
     },
     handleDelete(id) {
       deleteTopic(id).then(value => {
-        const { code, message } = value
+        const {code, message} = value
         alert(message)
 
         if (code === 200) {
           setTimeout(() => {
-            this.$router.push({ path: '/' })
+            this.$router.push({path: '/'})
           }, 500)
         }
       })
