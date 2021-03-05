@@ -18,7 +18,7 @@ export function post(topic) {
     })
 }
 
-// 浏览
+// 浏览 帖子详情
 export function getTopic(id) {
     return request({
         url: `/post`,

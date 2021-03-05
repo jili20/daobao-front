@@ -20,7 +20,7 @@ const routes = [
         name: "login",
         path: "/login",
         component: () => import("@/views/auth/Login"),
-        meta: { title: "登录" },
+        meta: {title: "登录"},
     },
     {
         path: "/404",
@@ -38,7 +38,14 @@ const routes = [
         name: "post-create",
         path: "/post/create",
         component: () => import("@/views/post/Create"),
-        meta: { title: "信息发布", requireAuth: true },
+        meta: {title: "信息发布", requireAuth: true},
+    },
+    // 详情
+    {
+        name: "post-detail",
+        path: "/post/:id",
+        component: () => import("@/views/post/Detail"),
+        meta: {title: "详情"},
     }
 ]
 
