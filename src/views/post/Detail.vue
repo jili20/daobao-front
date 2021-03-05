@@ -70,7 +70,7 @@
           v-if="flag"
           :user="topicUser"
       />
-      <!--推荐-->
+      <!--推荐 把帖子 id 传给子组件 :topic-id -->
       <recommend
           v-if="flag"
           :topic-id="topic.id"
@@ -83,14 +83,14 @@
 import {deleteTopic, getTopic} from '@/api/post'
 import {mapGetters} from 'vuex'
 import Author from '@/views/post/Author'
-// import Recommend from '@/views/post/Recommend'
+import Recommend from '@/views/post/Recommend'
 // import LvComments from '@/components/Comment/Comments'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 
 export default {
   name: 'TopicDetail',
-  components: {Author},
+  components: {Author,Recommend},
   // components: { Author, Recommend, LvComments },
   computed: {
     ...mapGetters([

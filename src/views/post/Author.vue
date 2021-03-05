@@ -72,6 +72,7 @@ export default {
         })
       }
     },
+    // 关注
     handleFollow: function (id) {
       if (this.token != null && this.token !== '') {
         follow(id).then(response => {
@@ -84,6 +85,7 @@ export default {
         this.$message.success('请先登录')
       }
     },
+    // 取消关注
     handleUnFollow: function (id) {
       unFollow(id).then(response => {
         const {message} = response
