@@ -82,7 +82,7 @@ export default {
           this.user.followerCount = parseInt(this.user.followerCount) + 1
         })
       } else {
-        this.$message.success('请先登录')
+        this.$message.error('请先登录')
       }
     },
     // 取消关注

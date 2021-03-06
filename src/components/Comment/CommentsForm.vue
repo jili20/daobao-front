@@ -19,7 +19,7 @@
                 class="level-item"
                 :disabled="isLoading"
             >
-              Comment
+              发表评论
             </b-button>
           </div>
         </nav>
@@ -30,9 +30,10 @@
 
 <script>
 import { pushComment } from '@/api/comment'
+import {mapGetters} from 'vuex'
 
 export default {
-  name: 'LvCommentsForm', // 发表评论表单
+  name: 'LvCommentsForm', // 评论表单
   data() {
     return {
       commentText: '',
@@ -45,10 +46,16 @@ export default {
       default: null
     }
   },
+  computed: {
+    ...mapGetters([ // 从 vuex 里取出 token,作者是判断是否是已登录用户
+      'token'
+    ])
+  },
   methods: {
     async onSubmit() {
       this.isLoading = true
-      try {
+      // 需要增加 表单不为空校验
+      if (this.token != null && this.token !== '') {
         let postData = {}
         console.log(this.commentText)
         postData['content'] = this.commentText
@@ -56,14 +63,29 @@ export default {
         await pushComment(postData)
         this.$emit('loadComments', this.slug)
         this.$message.success('留言成功')
-      } catch (e) {
-        this.$buefy.toast.open({
-          message: `Cannot comment this story. ${e}`,
-          type: 'is-danger'
-        })
-      } finally {
-        this.isLoading = false
+      }else {
+        this.$message.error('请先登录')
       }
+
+      // try {
+      //   let postData = {}
+      //   console.log(this.commentText)
+      //   postData['content'] = this.commentText
+      //   postData['topic_id'] = this.slug
+      //   await pushComment(postData)
+      //   this.$emit('loadComments', this.slug)
+      //   this.$message.success('留言成功')
+      // } catch (e) {
+      //   this.$buefy.toast.open({
+      //     // message: `请先登录. ${e}`,
+      //     message: `请先登录`,
+      //     type: 'is-danger'
+      //   })
+      // } finally {
+      //   this.isLoading = false
+      // }
+
+
     }
   }
 }
