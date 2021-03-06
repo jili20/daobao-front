@@ -41,10 +41,12 @@
               </b-taglist>
             </p>
           </div>
+          <!-- 编辑 删除 帖子 -->
           <div
               v-if="token && user.id === topicUser.id"
               class="level-right"
           >
+            <!-- 编辑 跳转到新的页面 -->
             <router-link
                 class="level-item"
                 :to="{name:'topic-edit',params: {id:topic.id}}"
@@ -131,6 +133,10 @@ export default {
         this.flag = true
       })
     },
+    /**
+     * 删除 帖子
+     * @param id
+     */
     handleDelete(id) {
       deleteTopic(id).then(value => {
         const {code, message} = value

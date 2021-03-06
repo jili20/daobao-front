@@ -40,6 +40,7 @@ export function getRecommendTopics(id) {
     })
 }
 
+// 修改帖子 传帖子 对象
 export function update(topic) {
     return request({
         url: '/post/update',
@@ -48,6 +49,7 @@ export function update(topic) {
     })
 }
 
+// 删除帖子 传帖子 id
 export function deleteTopic(id) {
     return request({
         url: `/post/delete/${id}`,
