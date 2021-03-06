@@ -62,7 +62,14 @@ const routes = [
         name: 'tag',
         path: '/tag/:name',
         component: () => import('@/views/tag/Tag'),
-        meta: { title: '主题列表' }
+        meta: {title: '主题列表'}
+    },
+    // 检索
+    {
+        name: 'search',
+        path: '/search',
+        component: () => import('@/views/Search'),
+        meta: {title: '检索'}
     }
 ]
 
