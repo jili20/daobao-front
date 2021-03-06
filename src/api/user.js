@@ -12,3 +12,19 @@ export function getInfoByName(username, page, size) {
     })
 }
 
+// 获取用户信息
+export function getInfo() {
+    return request({
+        url: '/ums/user/info',
+        method: 'get'
+    })
+}
+// 更新
+export function update(user) {
+    return request({
+        url: '/ums/user/update',
+        method: 'post',
+        data: user
+    })
+}
+
