@@ -30,7 +30,7 @@
                   </router-link>
 
                   <span class="mr-1">
-                    发布于:{{ dayjs(item.createTime).format("yyyy-MM-dd HH:mm:ss") }}
+                    发布于:{{ dayjs(item.createTime).format('YYYY-MM-DD HH:mm:ss') }}
                   </span>
 
                   <span
@@ -66,8 +66,7 @@
 
 <script>
 import { searchByKeyword } from '@/api/search'
-import Pagination from '@/components/Pagination' // 分页组件
-
+import Pagination from '@/components/Pagination'
 export default {
   name: 'Search',
   components: { Pagination },
@@ -98,5 +97,6 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 </style>

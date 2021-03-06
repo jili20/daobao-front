@@ -4,12 +4,10 @@
       <div slot="header" class="clearfix">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="最新主题" name="latest">
-            <!-- article HTML 新标签，media bulma样式 媒体对象 -->
             <article v-for="(item, index) in articleList" :key="index" class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img :src="`https://cn.gravatar.com/avatar/${item.userId}?s=164&d=monsterid`"
-                       style="border-radius: 5px;">
+                  <img :src="`https://cn.gravatar.com/avatar/${item.userId}?s=164&d=monsterid`" style="border-radius: 5px;">
                 </figure>
               </div>
               <div class="media-content">
@@ -22,7 +20,6 @@
                     </el-tooltip>
                   </p>
                 </div>
-                <!-- level 一行显示 -->
                 <nav class="level has-text-grey is-mobile  is-size-7 mt-2">
                   <div class="level-left">
                     <div class="level-left">
@@ -31,7 +28,7 @@
                       </router-link>
 
                       <span class="mr-1">
-                        发布于:{{ dayjs(item.createTime).format("YYYY-MM-DD") }}
+                        发布于:{{ dayjs(item.createTime).format("YYYY/MM/DD") }}
                       </span>
 
                       <span
@@ -49,15 +46,14 @@
                   </div>
                 </nav>
               </div>
-              <div class="media-right"/>
+              <div class="media-right" />
             </article>
           </el-tab-pane>
           <el-tab-pane label="热门主题" name="hot">
             <article v-for="(item, index) in articleList" :key="index" class="media">
               <div class="media-left">
                 <figure class="image is-48x48">
-                  <img :src="`https://cn.gravatar.com/avatar/${item.userId}?s=164&d=monsterid`"
-                       style="border-radius: 5px;">
+                  <img :src="`https://cn.gravatar.com/avatar/${item.userId}?s=164&d=monsterid`" style="border-radius: 5px;">
                 </figure>
               </div>
               <div class="media-content">
@@ -78,7 +74,7 @@
                       </router-link>
 
                       <span class="mr-1">
-                        发布于:{{ dayjs(item.createTime).format("yyyy-MM-dd HH:mm:ss") }}
+                        发布于:{{ dayjs(item.createTime).format('YYYY-MM-DD HH:mm:ss') }}
                       </span>
 
                       <span
@@ -96,7 +92,7 @@
                   </div>
                 </nav>
               </div>
-              <div class="media-right"/>
+              <div class="media-right" />
             </article>
           </el-tab-pane>
         </el-tabs>
@@ -115,17 +111,17 @@
 </template>
 
 <script>
-import {getList} from '@/api/post'
+import { getList } from '@/api/post'
 import Pagination from '@/components/Pagination'
 
 export default {
   name: 'TopicList',
-  components: {Pagination},
+  components: { Pagination },
   data() {
     return {
-      activeName: 'latest', // 切换 最新 或 最热 帖子
+      activeName: 'latest',
       articleList: [],
-      page: { // 分页对象
+      page: {
         current: 1,
         size: 10,
         total: 0,
@@ -139,7 +135,7 @@ export default {
   methods: {
     init(tab) {
       getList(this.page.current, this.page.size, tab).then((response) => {
-        const {data} = response
+        const { data } = response
         this.page.current = data.current
         this.page.total = data.total
         this.page.size = data.size
