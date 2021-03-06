@@ -12,7 +12,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/app.css'
 import '@/permission'
 
-// 日期格式化第三方库
+// 2.又一日期格式化组件
+import format from 'date-fns/format'
+
+// 1.日期格式化第三方库
 import relativeTime from 'dayjs/plugin/relativeTime';
 // 国际化
 import 'dayjs/locale/zh-cn'
@@ -26,10 +29,11 @@ dayjs().locale('zh-cn').format() // use locale in a specific instance
 
 Vue.prototype.dayjs = dayjs;//可以全局使用dayjs
 
-// Vue.filter('date', (date) => {
-//     return format(new Date(date), 'yyyy-MM-dd')
-// })
 
+// 2.又一日期格式化组件
+Vue.filter('date', (date) => {
+    return format(new Date(date), 'yyyy-MM-dd')
+})
 
 Vue.use(Buefy);
 Vue.use(ElementUI);

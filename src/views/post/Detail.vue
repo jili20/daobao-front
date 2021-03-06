@@ -60,7 +60,7 @@
           </div>
         </nav>
       </el-card>
-
+      <!-- 子组件-回复组件，给子组件传帖子 id，目的根据帖子 id 得到所有评论 -->
       <lv-comments :slug="topic.id"/>
     </div>
 
@@ -84,14 +84,13 @@ import {deleteTopic, getTopic} from '@/api/post'
 import {mapGetters} from 'vuex'
 import Author from '@/views/post/Author'
 import Recommend from '@/views/post/Recommend'
-// import LvComments from '@/components/Comment/Comments'
+import LvComments from '@/components/Comment/Comments'
 import Vditor from 'vditor'
 import 'vditor/dist/index.css'
 
 export default {
   name: 'TopicDetail',
-  components: {Author,Recommend},
-  // components: { Author, Recommend, LvComments },
+  components: {Author, Recommend, LvComments},
   computed: {
     ...mapGetters([
       'token', 'user'
@@ -102,7 +101,7 @@ export default {
       flag: false,
       topic: {
         content: '',
-        id: this.$route.params.id // 获取路由上的 id
+        id: this.$route.params.id // 获取路由上的帖子 id
       },
       tags: [],
       topicUser: {}

@@ -7,11 +7,9 @@
       <p v-for="(item,index) in recommend" :key="index" :title="item.title" class="block ellipsis is-ellipsis-1">
         <router-link :to="{name:'post-detail',params: { id: item.id }}">
           <span v-if="index<9" class="tag">
-          <!-- 如果帖子索引小于 10 ，标号为 01 02 03.。。。 -->
             0{{ parseInt(index) + 1 }}
           </span>
           <span v-else class="tag">
-             <!-- 如果帖子索引大于 10 ，索引 + 1 -->
             {{ parseInt(index) + 1 }}
           </span>
           {{ item.title }}
@@ -22,7 +20,7 @@
 </template>
 
 <script>
-import {getRecommendTopics} from '@/api/post'
+import { getRecommendTopics } from '@/api/post'
 
 export default {
   name: 'Recommend',
@@ -43,7 +41,7 @@ export default {
   methods: {
     fetchRecommendTopics() {
       getRecommendTopics(this.topicId).then(value => {
-        const {data} = value
+        const { data } = value
         this.recommend = data
       })
     }

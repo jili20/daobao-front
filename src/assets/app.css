@@ -18,8 +18,9 @@ html {
 
 /*背景图*/
 body {
-    background-image: url('https://api.mz-moe.cn/img.php');
-    background-repeat: round;
+    /*background-image: url('https://api.mz-moe.cn/img.php');*/
+    /*background-repeat: round;*/
+    background-color: #1d1d1d;
 }
 
 @media (min-width: 768px) {
